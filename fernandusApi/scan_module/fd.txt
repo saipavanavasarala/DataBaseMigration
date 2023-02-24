@@ -1,0 +1,80 @@
+select * from "ScanMachineMaster"
+select * from "ScanMachineAvailability"
+select * from "ScanMachineTestMap"
+select * from "ScanTestMaster"
+
+--
+select * from "LabDepartment" where "DEPTID"='DEP00105'
+alter table "LabDepartment" add column "DEPTID" varchar(200)
+--
+select * from "LabSampleType" lst ;
+select * from "LabMainDetail";
+
+alter table "LabSampleType" add column "ShivamSample" varchar(20)
+delete from "LabMainDetail"
+select * from "LabMainDetail"
+
+select * from "LabTemplateHeader" where "SOURCEID"='M0000001';
+
+--ECG  T0000410     None  DEP00105
+insert into "LabMainDetail"("TestName","LabDepartmentId","TestCode","LabSampleTypeId",
+						   "CreatedBy" 
+						   )
+		select 'ECG',"LabDepartmentId",'T0000410',1,6776 from "LabDepartment","LabSampleType"
+		where "DEPTID"='DEP00105' limit 1
+		
+		--DEP00105
+insert into "LabMainDetail"("TestName","LabDepartmentId","TestCode",
+						   "CreatedBy","CreatedDate")						   		
+		select 'ECG',
+		"LabDepartmentId" ,
+		'T0000410' ,
+		6776,now()
+		from "LabDepartment","LabSampleType"
+		where "DEPTID"='DEP00105' limit 1 and "TypeName"='Stool'  limit 1
+		
+select * from "LabMainDetail"
+
+delete
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	select * from "ScanClassification"
+									
+									
+									select * from "ScanMachineMaster"
+									
+									select * from "ScanMachineTestMap"
+
+									select * from "ScanSubClassification"
+									
+									select * from "ScanTestMaster"
+									
+									select * from "LocationScanTestMasterMap"
+									
+
+
+
+
+
+
+		
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+select * from "ScanClassification" where "ScanClassificationId"=34
+select * from "ScanSubClassification"
+select * from "ScanTestMaster"
+select * from "LocationScanTestMasterMap"
+
+select * from "Location"
+select * from "ChargeCategory"
+
+select * from "ScanMachineMaster"
+select * from "ScanMachineAvailability"
+
+select * from "ScanMachineTestMap"
+select * from "ScanTestMaster"
+
+alter table "ScanClassification" add column "ShivamScanClassificationId" varchar(200) 
+delete from "ScanClassification"
+alter table "ScanSubClassification" add column "ShivamScanClassificationId" varchar(200)
+
+

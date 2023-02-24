@@ -1,0 +1,18 @@
+
+SELECT * FROM DIAGNOTECH.TESTMAST t   -- scan test
+
+
+
+SELECT *FROM ADMIN.SCANSUBCLASSIFICATION  --- scan sub classification
+
+
+
+
+
+select * from SCANCLASSIFICATIONMASTER;
+
+select * from SCANSUBCLASSIFICATION;
+
+SELECT * from SCANSUBCLASSIFICATIONDTL;
+
+select * from diagnotech.testmast
