@@ -1,0 +1,23 @@
+## oracle to postgres
+
+This service to used to migrate data from shivam database to hims database
+
+The following are files:
+
+## DataBase2.py inherits generator.py(used to build PatientFamily data)
+-> This file is used to insert data in Patient,PatientFamily,Accounts Tables.
+methods():
+o.getOracleData() # used to get oracle latest inserted data.
+o.getPostgresData()  #used to get postgres data from patient table.
+o.appendDataToPostgres() #used to insert data in Patient,PatientFamily in Tables.
+o.appendToAccount() #used to insert data into Acconts Table.
+
+## appointments.py 
+->this file is used to insert appointments booked in shivam  to hims databases.
+
+methods():
+
+1) getOracleData() this function is used to insert latest appointments in hims table.
+
+
+ 
