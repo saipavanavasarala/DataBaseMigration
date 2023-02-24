@@ -1,0 +1,14 @@
+alter table "LabParameterHeader" add column "SUBCOMPID" varchar(200)
+
+alter table "LabParameterDetail" add column "SUBCOMPID" VARCHAR(200),ADD COLUMN "InvOrder" integer
+
+alter table "LabComponentHeader" add column "ShivamComponentId" VARCHAR(200)
+
+alter table "LabComponentDetail" add column "ShivamComponentId" VARCHAR(200),add column "SUBCOMPID" VARCHAR(200)
+
+ALTER TABLE "LabTemplateHeader" add column "SOURCEID" VARCHAR(200)
+
+ALTER TABLE "LabTemplateDetail" add column "SOURCEID" VARCHAR(200)
+
+ALTER TABLE "LabDepartment" add column "DEPTID" VARCHAR(200)
+ALTER TABLE "LabSampleType" add column "ShivamSample" varchar(200)

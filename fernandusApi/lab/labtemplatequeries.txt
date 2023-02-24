@@ -1,0 +1,19 @@
+select * from "LabTemplateHeader" where "SOURCEID"='M0000235'
+
+insert INTO "LabTemplateDetail"("LabTemplateHeaderId","LabComponentHeaderId","LabParameterHeaderId","SOURCEID","Priority")
+select "LabTemplateHeaderId",
+CASE WHEN EXISTS(SELECT * FROM "LabComponentHeader" where "ShivamComponentId"='SCMP0543') THEN "LabComponentHeaderId" ELSE NULL END  "LabComponentHeaderId",
+CASE WHEN EXISTS (SELECT * FROM "LabParameterHeader" where "SUBCOMPID"='SCMP0543') THEN "LabParameterHeaderId" ELSE NULL END "LabParameterHeaderId",'M0000235' ,1   from "LabTemplateHeader","LabComponentHeader","LabParameterHeader"
+where "SOURCEID"='M0000235' and "SUBCOMPID"='SCMP0543' OR "ShivamComponentId"='SCMP0543' LIMIT 1 returning "LabTemplateDetailId"
+
+
+select "LabTemplateHeaderId",
+CASE WHEN EXISTS(SELECT * FROM "LabComponentHeader" where "ShivamComponentId"='SCMP0543') THEN "LabComponentHeaderId" ELSE NULL END  "LabComponentHeaderId",
+CASE WHEN EXISTS (SELECT * FROM "LabParameterHeader" where "SUBCOMPID"='SCMP0543') THEN "LabParameterHeaderId" ELSE NULL END "LabParameterHeaderId",'M0000235' "SOURCEID"  from "LabTemplateHeader","LabComponentHeader","LabParameterHeader"
+where "SOURCEID"='M0000235' and "SUBCOMPID"='SCMP0543' OR "ShivamComponentId"='SCMP0543' LIMIT 1
+
+delete from "LabTemplateDetail"
+
+select * from "LabTemplateDetail"
+
+select "SOURCEID","LabTemplateHeaderId" from "LabTemplateHeader" where "SOURCEID" IS NOT NULL

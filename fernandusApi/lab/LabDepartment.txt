@@ -1,0 +1,16 @@
+#-oracle
+
+fetch from oracle - 
+
+1) SELECT distinct(DEPTNM),deptid FROM DIAGNOTECH.DEPARTMENTS d ;
+
+2) SELECT distinct(DEPTNM),deptid,DESC_R,6776 createdby,CURRENT_DATE  createddate,
+    'True' active FROM DIAGNOTECH.DEPARTMENTS d ;
+
+#-pgadmin
+
+1) alter LabDepartment table add "DEPTID" varchar(200) column. 
+
+--alter table "LabDepartment" add column "DEPTID" varchar(200)
+
+2) insert into LabDepartment with default values: active=true,createdby=6776,createddate=now().

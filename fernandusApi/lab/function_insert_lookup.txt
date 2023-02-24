@@ -1,0 +1,31 @@
+-- FUNCTION: public.function_insert_lookupvalue(text)
+
+-- DROP FUNCTION IF EXISTS public.function_insert_lookupvalue(text);
+
+CREATE OR REPLACE FUNCTION public.function_insert_lookupvalue(
+	lookupname text)
+    RETURNS integer
+    LANGUAGE 'plpgsql'
+    COST 100
+    VOLATILE PARALLEL UNSAFE
+AS $BODY$
+
+	DECLARE 
+	l_id int;
+	BEGIN
+
+	
+	IF NOT EXISTS(select "LookupId" from "LookupValue" where "Name"=lookupname)
+		THEN	
+		insert into "LookupValue"("LookupId","Name", "CreatedBy", "CreatedDate") values(13,lookupname,6776 , now())	;
+	END IF;
+	
+	select "LookupValueId" into l_id from "LookupValue" where "Name"=lookupname;
+	
+	return l_id;
+	END
+	
+$BODY$;
+
+ALTER FUNCTION public.function_insert_lookupvalue(text)
+    OWNER TO postgres;
